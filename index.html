@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TEO</title>
+  <title>SK Labs news</title>
   <style>
-    .content {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      padding: 10px;
-      font-size: 16px;
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    h1 {
+      font-family: 'Your Fancy Font', courier new;
+      text-align: center;
+    }
+    
+    p {
+      font-family: 'Your Fancy Font', courier new;
+      text-align: center;
+    }
+    p2 {
+      font-family: 'Your Fancy Font', courier new;
+      text-align: center;
+    }
+    p3 {
+      font-family: 'Your Fancy Font', courier new;
+      text-align: center;
     }
   </style>
-  <script>
-    // Function to send a request to the server and update the count
-    function updateCount() {
-      fetch('/updateCount', { method: 'POST' })
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('count').textContent = data.count;
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    }
-  </script>
 </head>
 <body>
-  <h1 align="center">Today Teodosie Salavastru has been genetically identified as a donkey.</h1>
-  <p align="center">(donkey noises) verified by Sinan Hassan - head of donkey Investigations in Dildo Labs inc. -Stefan K</p>
-  <img src="gay n.jpg" style="float: left;" />
-  <img src="paki.jpg" style="float: right;" />
-
+  <h1>Welcome to SK-Labs news lol</h1>
+  <p>Select a news article written by Stefan K of SK labs</p>
+  <ul>
+    <li><a href="https://sklabs.pro/Teo_donkey">Teo Donkey report of 31/05/23</a></li>
+    <li><a href="https://sklabs.pro/professor_shivon">Shivon Amin proffesional opinion on local goverment</a></li>
+    <li><a href="https://sklabs.pro/Teo">TEO donkey</a></li>
+  </ul>
+  <p2>Or go fuck yourself</p2>
   <div class="content">
-    <p>Stay tuned for more news (Promoted by Rohan)</p>
-    <button onclick="updateCount()">Click Me</button>
-    <p>Count: <span id="count">0</span></p>
+    <p3>Stay tuned for more news (Promoted by Rohan)</p3>
   </div>
 </body>
 </html>
