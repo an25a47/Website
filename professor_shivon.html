@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We are working on it</title>
-  <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
-    
-    h1 {
-      font-family: 'Courier New', Courier, monospace;
-      text-align: center;
-    }
-    
-    .button {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      padding: 10px;
-      background-color: #263661;
-      color: #FCAC01;
-      text-decoration: none;
-      font-size: 16px;
-    }
-  </style>
+    <title>Password Protected File Download</title>
 </head>
 <body>
-  <h1>We are working on it</h1>
-  
-  <a class="button" href="https://sklabs.pro/">Go to menu</a>
+    <h2>Enter password to download the file</h2>
+
+    <input type="password" id="password-input" placeholder="Enter password">
+    <button onclick="validatePassword()">Submit</button>
+
+    <p id="msg"></p>
+
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password-input").value;
+            var correctPassword = "53809319057";  // Your password here
+            var msg = document.getElementById("msg");
+            
+            if (password === correctPassword) {
+                msg.textContent = "Correct password. Downloading file...";
+                msg.style.color = "green";
+
+                // simulate download
+                setTimeout(() => {
+                    var a = document.createElement('a');
+                    a.href = "pussy.txt";  // Your file path here
+                    a.download = "filename.ext";  // Your file name here
+                    a.click();
+                }, 2000);
+            } else {
+                msg.textContent = "Incorrect password. Try again.";
+                msg.style.color = "red";
+            }
+        }
+    </script>
 </body>
 </html>
