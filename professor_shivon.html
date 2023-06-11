@@ -6,31 +6,49 @@
 <body>
     <h2>Enter password to download the file</h2>
 
+    <select id="file-select">
+        <option value="">Select file...</option>
+        <option value="pussy.txt">1</option>
+        <option value="Stefan K U4 A2.pdf">2</option>
+        <option value="file 3.pdf">3</option>
+        <!-- add more options as necessary -->
+    </select>
+
     <input type="password" id="password-input" placeholder="Enter password">
     <button onclick="validatePassword()">Submit</button>
 
     <p id="msg"></p>
+
+    <div id="download-link-container"></div>
 
     <script>
         function validatePassword() {
             var password = document.getElementById("password-input").value;
             var correctPassword = "53809319057";  // Your password here
             var msg = document.getElementById("msg");
+            var fileSelect = document.getElementById("file-select");
+            var downloadLinkContainer = document.getElementById("download-link-container");
             
-            if (password === correctPassword) {
-                msg.textContent = "Correct password. Downloading file...";
+            if (password === correctPassword && fileSelect.value !== "") {
+                msg.textContent = "Correct password. Here is your download link:";
                 msg.style.color = "green";
 
-                // simulate download
-                setTimeout(() => {
-                    var a = document.createElement('a');
-                    a.href = "pussy.txt";  // Your file path here
-                    a.download = "filename.ext";  // Your file name here
-                    a.click();
-                }, 2000);
+                var a = document.createElement('a');
+                a.href = fileSelect.value;  
+                a.textContent = 'Download ' + fileSelect.options[fileSelect.selectedIndex].text;
+                a.style.display = 'block';
+                a.target = '_blank';  // Open in a new tab
+                downloadLinkContainer.innerHTML = '';  // Clear previous links
+                downloadLinkContainer.appendChild(a);
             } else {
-                msg.textContent = "Incorrect password. Try again.";
+                if (password !== correctPassword) {
+                    msg.textContent = "Incorrect password. Try again.";
+                }
+                if (fileSelect.value === "") {
+                    msg.textContent += " No file selected.";
+                }
                 msg.style.color = "red";
+                downloadLinkContainer.innerHTML = '';  // Clear previous links
             }
         }
     </script>
