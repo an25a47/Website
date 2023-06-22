@@ -5,33 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Camera Feed</title>
+    <title>Caller</title>
 </head>
 
 <body>
-
-    <h1>Camera Feed</h1>
-
-    <video id="cameraFeed" autoplay></video>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var video = document.getElementById('cameraFeed');
-
-            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ video: true })
-                    .then(function (stream) {
-                        video.srcObject = stream;
-                    })
-                    .catch(function (error) {
-                        console.log("Something went wrong!", error);
-                    });
-            } else {
-                alert("Your browser does not support the Media Devices API");
-            }
-        });
-    </script>
-
+    <video id="localVideo" autoplay muted></video>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="caller.js"></script>
 </body>
 
 </html>
