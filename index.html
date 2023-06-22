@@ -1,217 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to SK Labs news</title>
-  <style>
-    /* Add some basic styling */
-    * {
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Courier New', Courier, monospace;
-      margin: 0;
-      padding: 0;
-      background-color: #ffffff;
-      color: #333333;
-    }
-    
-    header {
-      background-color: #333333;
-      color: #ffffff;
-      padding: 40px;
-      text-align: center;
-    }
-    
-    nav {
-      background-color: #444444;
-      padding: 20px;
-    }
-    
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-    
-    nav ul li a {
-      text-decoration: none;
-      color: #ffffff;
-      font-size: 20px;
-      font-weight: bold;
-      padding: 10px 20px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-    
-    nav ul li a:hover {
-      background-color: #333333;
-    }
-    
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: stretch;
-      flex-direction: column;
-      padding: 40px;
-    }
-    
-    section {
-      background-color: #f2f2f2;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    
-    section h2 {
-      color: #333333;
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-    
-    section p {
-      color: #555555;
-      font-size: 18px;
-      line-height: 1.6;
-    }
-    
-    .ticker-container {
-      background-color: #444444;
-      color: #ffffff;
-      padding: 20px;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .ticker {
-      position: absolute;
-      white-space: nowrap;
-      animation: tickerAnimation 15s linear infinite;
-    }
-    
-    .ticker span {
-      display: inline-block;
-      margin-right: 50px;
-      opacity: 0;
-      animation: tickerItemAnimation 5s linear infinite;
-    }
-
-    .ticker span.red-text {
-      color: red;
-    }
-
-    @keyframes tickerAnimation {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-    
-    @keyframes tickerItemAnimation {
-      0% {
-        opacity: 0;
-      }
-      20%, 80% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-      }
-    }
-    
-    .additional-box {
-      background-color: #f2f2f2;
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 40px;
-    }
-    
-    .additional-box h3 {
-      color: #333333;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-    
-    .additional-box p {
-      color: #555555;
-      font-size: 16px;
-    }
-    
-    footer {
-      background-color: #333333;
-      color: #ffffff;
-      padding: 20px;
-      text-align: center;
-    }
-  </style>
-  <script>
-    // Array of title options
-    var titles = ["Welcome to SK Labs news", "Breaking News from SK Labs", "Stay Informed with SK Labs"];
-    
-    // Function to change the title every 5 seconds
-    function changeTitle() {
-      var randomIndex = Math.floor(Math.random() * titles.length);
-      document.title = titles[randomIndex];
-    }
-    
-    // Call the function initially
-    changeTitle();
-    
-    // Call the function every 5 seconds
-    setInterval(changeTitle, 5000);
-  </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Camera Feed</title>
 </head>
+
 <body>
-  <header>
-    <h1 style="font-size: 48px;">Welcome to SK Labs news</h1>
-  </header>
-  
-  <nav>
-    <ul>
-      <li><a href="https://sklabs.pro/">Information</a></li>
-      <li><a href="https://sklabs.pro/professor_shivon">For</a></li>
-      <li><a href="https://sklabs.pro/">Nobody</a></li>
-    </ul>
-  </nav>
-  
-  <div class="ticker-container">
-    <div class="ticker">
-      <span class="red-text">BREAKING NEWS:</span> <span>Your mother confirmed gay by scientists at NASA.</span>
-    </div>
-  </div>
-  
-  <main>
-    <section>
-      <h2>Teo donkey report of 31/05/2023</h2>
-      <p>Read about Teo's Donkey origin</p>
-      <p><a href="https://sklabs.pro/Teo_donkey" target="_blank">Click to read report</a></p>
-    </section>
-    
-    <section>
-      <h2>Aysha impregnated by Akif Ali</h2>
-      <p>Learn about the child of Akif Ali with Aysha</p>
-      <p><a href="https://sklabs.pro/Aysha_preg" target="_blank">Click to read report</a></p>
-    </section>
-    
-    <section>
-      <h2>Stay tuned for more news</h2>
-      <p>Promoted by Rohan</p>
-    </section>
-  </main>
-  
-  <footer>
-    <p>Absolutely no rights reserved &copy;2069</p>
-  </footer>
+
+    <h1>Camera Feed</h1>
+
+    <video id="cameraFeed" autoplay></video>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('cameraFeed');
+
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(function (stream) {
+                        video.srcObject = stream;
+                    })
+                    .catch(function (error) {
+                        console.log("Something went wrong!", error);
+                    });
+            } else {
+                alert("Your browser does not support the Media Devices API");
+            }
+        });
+    </script>
+
 </body>
+
 </html>
