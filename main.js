@@ -1,32 +1,27 @@
-const localVideo = document.getElementById('localVideo');
+// Add this at the bottom of startPeerConnection function
 
-navigator.mediaDevices.getUserMedia({ video: true })
-    .then(stream => {
-        localVideo.srcObject = stream;
-        startPeerConnection(stream);
-    });
+peerConnection.onicecandidate = event => {
+    if (event.candidate) {
+        sendMessage({ 'candidate': event.candidate });
+    }
+};
 
-function startPeerConnection(stream) {
-    const configuration = {
-        iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
-    };
-    const peerConnection = new RTCPeerConnection(configuration);
-
-    stream.getTracks().forEach(track => {
-        peerConnection.addTrack(track, stream);
-    });
-
-    peerConnection.createOffer()
-        .then(offer => {
-            return peerConnection.setLocalDescription(offer);
-        })
-        .then(() => {
-            // Send peerConnection.localDescription to the other peer over your server
-        });
-
-    peerConnection.onicecandidate = event => {
-        if (event.candidate) {
-            // Send the candidate to the other peer over your server
-        }
-    };
+// Add this function to handle sending messages to the signaling server
+function sendMessage(message) {
+    if (connection) {
+        connection.sendUTF(JSON.stringify(message));
+    }
 }
+
+// Add this code to establish WebSocket connection
+const connection = new WebSocket('ws://localhost:3000');
+
+connection.onmessage = message => {
+    const data = JSON.parse(message.data);
+    
+    if (data.answer) {
+        peerConnection.setRemoteDescription(new RTCSessionDescription(data.answer));
+    } else if (data.candidate) {
+        peerConnection.addIceCandidate(new RTCIceCandidate(data.candidate));
+    }
+};
