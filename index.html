@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sender</title>
+    <title>Realtime Communication</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 </head>
 <body>
-    <h1>Message Sender</h1>
-    <form action="https://formspree.io/f/{your_formspree_id}" method="POST">
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
-        <input type="submit" value="Send Message">
-    </form>
+    <h1>Realtime Communication</h1>
+    <input type="text" id="messageInput">
+    <button onclick="sendMessage()">Send Message</button>
+    <div id="messageBox"></div>
+    <script src="script.js"></script>
 </body>
 </html>
