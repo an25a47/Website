@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Checkbox Example</title>
@@ -46,7 +46,11 @@ function handleCheckboxClick(checkboxId) {
     
     if (clickedCheckbox.checked) {
         otherCheckbox.disabled = true;
-        displayResult(checkboxId);
+        if (checkboxId === 'noCheckbox') {
+            window.location.href = 'https://sklabs.pro/lol';
+        } else {
+            displayResult(checkboxId);
+        }
     } else {
         otherCheckbox.disabled = false;
         hideResult();
