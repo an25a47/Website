@@ -14,18 +14,21 @@ body {
     100% { background-color: #27ae60; }
 }
 
-.confetti {
+.confetti-container {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #e74c3c;
-    opacity: 0;
-    animation: fall 4s linear infinite;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
 }
 
-@keyframes fall {
-    0% { opacity: 0; }
-    100% { transform: translateY(100vh) rotate(360deg); opacity: 1; }
+.confetti {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #e74c3c;
+    opacity: 0;
+    animation: fall linear;
+    transform-origin: bottom center;
 }
 
 .content {
