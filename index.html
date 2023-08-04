@@ -1,45 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Checkbox Example</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        
-        #choiceForm {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+function createConfetti() {
+    const confettiContainer = document.querySelector(".confetti-container");
 
-        #result {
-            display: none;
-        }
-    </style>
-</head>
-<body>
+    for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = `${Math.random() * 100}vw`;
+        confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        confetti.style.animationDelay = `${Math.random() * 2}s`;
+        confettiContainer.appendChild(confetti);
+    }
+}
 
-<h1>Choose Yes or No</h1>
-
-<form id="choiceForm">
-    <label>
-        <input type="checkbox" id="yesCheckbox" name="choice" value="yes" onclick="handleCheckboxClick('yesCheckbox')"> Yes
-    </label>
-    <br>
-    <label>
-        <input type="checkbox" id="noCheckbox" name="choice" value="no" onclick="handleCheckboxClick('noCheckbox')"> No
-    </label>
-</form>
-
-<p id="result"></p>
-
-<script>
 function handleCheckboxClick(checkboxId) {
     var clickedCheckbox = document.getElementById(checkboxId);
     var otherCheckbox = checkboxId === 'yesCheckbox' ? document.getElementById('noCheckbox') : document.getElementById('yesCheckbox');
@@ -49,7 +20,7 @@ function handleCheckboxClick(checkboxId) {
         if (checkboxId === 'noCheckbox') {
             window.location.href = 'https://sklabs.pro/lol';
         } else {
-            displayResult(checkboxId);
+            displayResult('Wrong answer!');
         }
     } else {
         otherCheckbox.disabled = false;
@@ -57,10 +28,8 @@ function handleCheckboxClick(checkboxId) {
     }
 }
 
-function displayResult(checkboxId) {
+function displayResult(resultText) {
     var resultElement = document.getElementById("result");
-    var resultText = checkboxId === 'yesCheckbox' ? "You chose 'Yes' - Number 1" : "You chose 'No' - Number 2";
-    
     resultElement.innerHTML = resultText;
     resultElement.style.display = 'block';
 }
@@ -69,7 +38,5 @@ function hideResult() {
     var resultElement = document.getElementById("result");
     resultElement.style.display = 'none';
 }
-</script>
 
-</body>
-</html>
+createConfetti();
