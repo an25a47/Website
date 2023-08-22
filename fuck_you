@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FUCKING Website</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        #content {
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content">
+    FUCK YOU!
+</div>
+
+</body>
+</html>
