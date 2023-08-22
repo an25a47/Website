@@ -47,22 +47,14 @@ function handleCheckboxClick(checkboxId) {
     if (clickedCheckbox.checked) {
         otherCheckbox.disabled = true;
         if (checkboxId === 'yesCheckbox') {
-            window.location.href = 'https://sklabs.pro/fuck_you';
+            window.location.href = 'https://sklabs.pro/website_yes';
         } else {
-            displayResult(checkboxId);
+            window.location.href = 'https://sklabs.pro/website_no';
         }
     } else {
         otherCheckbox.disabled = false;
         hideResult();
     }
-}
-
-function displayResult(checkboxId) {
-    var resultElement = document.getElementById("result");
-    var resultText = checkboxId === 'yesCheckbox' ? "You chose 'Yes' - Number 1" : "You chose 'No' - Number 2";
-    
-    resultElement.innerHTML = resultText;
-    resultElement.style.display = 'block';
 }
 
 function hideResult() {
