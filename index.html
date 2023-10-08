@@ -1,69 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Teo Donkey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toby Cleaning Company Ltd</title>
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            font-family: Arial, sans-serif;
             margin: 0;
+            padding: 0;
+            background: url('Screenshot (37).png') no-repeat center center fixed;
+            background-size: cover;
         }
-        
-        #choiceForm {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .title-bar {
+            background-color: rgb(109, 50, 219);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
         }
-
-        #result {
+        .dropdown {
+            position: absolute;
+            right: 65px; /* adjusted */
+            top: 35px;
+        }
+        .dropdown-button {
+            background-color: rgb(109, 50, 219);
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-content {
             display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .header {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin: 0 20px;
+        }
+        .content {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            margin: 20px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            margin: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        h2 {
+            color: white;  /* Color changed to white */
+        }
+        .subdomains {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+        .subdomain {
+            border-radius: 10px;
+            width: 30%;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            color: white;
+        }
+        .subdomain a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-decoration: none;
+            color: inherit;
+        }
+        .subdomain img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .left-subdomain {
+            background-color: rgb(143, 102, 219);
+        }
+        .center-subdomain {
+            background-color: rgb(143, 102, 219);
+        }
+        .right-subdomain {
+            background-color: rgb(143, 102, 219);
+        }
+        .contact-info {
+            text-align: center;
+            padding: 20px;
+            background-color: rgb(144, 112, 204);
+            width: 100%;
+            border-top: 2px solid rgb(144, 112, 204);
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <div class="title-bar">
+        <h1>Toby Cleaning Company Ltd</h1>
+        <div class="dropdown">
+            <button class="dropdown-button">Menu</button>
+            <div class="dropdown-content">
+                <a href="https://services.tobycleaning.example.com">Services</a>
+                <a href="https://contact.tobycleaning.example.com">Contact Us</a>
+                <a href="https://about.tobycleaning.example.com">About Us</a>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <p>Professional Cleaning Services in Bedfordshire</p>
+    </div>
+    <div class="content">
+        <p>
+            Toby Cleaning Company Limited – your dependable cleaning partner in Bedfordshire. Specialising in domestic, commercial, and end of tenancy cleaning services, our family-owned business is dedicated to exceeding your cleaning expectations.
 
-<h1>Choose Yes or No</h1>
+Our approach is straightforward: understand the unique needs of each client, deliver high-quality cleaning services with a professional and friendly team, and ensure every space we clean is left pristine and inviting. Our reputation for excellence, trustworthiness, and attention to detail has positioned us as a reputable name in the cleaning sector.
 
-<form id="choiceForm">
-    <label>
-        <input type="checkbox" id="yesCheckbox" name="choice" value="yes" onclick="handleCheckboxClick('yesCheckbox')"> Yes
-    </label>
-    <br>
-    <label>
-        <input type="checkbox" id="noCheckbox" name="choice" value="no" onclick="handleCheckboxClick('noCheckbox')"> No
-    </label>
-</form>
-
-<p id="result"></p>
-
-<script>
-function handleCheckboxClick(checkboxId) {
-    var clickedCheckbox = document.getElementById(checkboxId);
-    var otherCheckbox = checkboxId === 'yesCheckbox' ? document.getElementById('noCheckbox') : document.getElementById('yesCheckbox');
-    
-    if (clickedCheckbox.checked) {
-        otherCheckbox.disabled = true;
-        if (checkboxId === 'yesCheckbox') {
-            window.location.href = 'https://sklabs.pro/fuck_you';
-        } else {
-            window.location.href = 'https://sklabs.pro/lol';
-        }
-    } else {
-        otherCheckbox.disabled = false;
-        hideResult();
-    }
-}
-
-function hideResult() {
-    var resultElement = document.getElementById("result");
-    resultElement.style.display = 'none';
-}
-</script>
-
+With a blend of modern cleaning technology and a personalised touch, we strive to redefine cleaning excellence, ensuring a seamless experience for our clients. Discover the Toby Cleaning Company difference today and enjoy a cleaner, more refreshing environment.
+        </p>
+    </div>
+    <div class="subtitle">
+        <h2>Services</h2>  <!-- This is now an h2 element -->
+    </div>
+    <div class="subdomains">
+        <div class="subdomain left-subdomain">
+            <p>Domestic Cleaning</p>
+            <img src="domestic_cl.jpg" alt="Left Image Description">
+            <a href="https://left.subdomain.example.com"></a>
+        </div>
+        <div class="subdomain center-subdomain">
+            <p>End Of Tenancy Cleaning</p>
+            <img src="EndOfTenancy_cl.png" alt="Center Image Description">
+            <a href="https://center.subdomain.example.com"></a>
+        </div>
+        <div class="subdomain right-subdomain">
+            <p>Commercial and Office Cleaning</p>
+            <img src="office_cl_2.jpg" alt="Right Image Description">
+            <a href="https://right.subdomain.example.com"></a>
+        </div>
+    </div>
+    <div class="contact-info">
+        <p>Contact us: 07306 113944 | info@tobycleaning.co.uk</p>
+    </div>
 </body>
 </html>
-
-
